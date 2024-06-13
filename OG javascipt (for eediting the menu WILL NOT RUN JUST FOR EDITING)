@@ -1,0 +1,112 @@
+javascript:(function() {
+  // Define bookmarklet options
+  const options = [
+    {
+      title: "Console",
+      url: "javascript:(function () { var script = document.createElement('script'); script.src='//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init() } })();"
+    },
+    {
+      title: "Make Iframe",
+      url: "javascript:var url = prompt('What site do you want to embed into ' + location.href + '?'); var prefix = 'https://'; if (url.substr(0, prefix.length) !== prefix) { url = prefix + url; } var ifra = document.createElement('iframe'); ifra.src = url; ifra.setAttribute('height', '770'); ifra.setAttribute('width', '1365'); void(document.body.appendChild(ifra));"
+    },
+    {
+      title: "Auto Clicker",
+      url: "javascript:(function(x,y){if(!window.click){window.click=!0,document.body.style.cursor='crosshair';var cps=prompt('Autoclicker CPS: (Under 200 recommended)');if(!cps||isNaN(cps)?(alert('You entered something wrong. Try running the script again.'),end()):alert('Autoclicker activated at '+cps+' CPS! Do [ctrl e] to stop.'),addEventListener('mousemove',e=>{x=e.clientX,y=e.clientY}),addEventListener('keydown',e=>{'e'===e.key&&e.ctrlKey&&(alert('Autoclicker deactivated! Click the bookmark again to reactivate!'),end())}),window.click)var int=setInterval(function(){var e=document.elementFromPoint(x,y);e&&e.click()},1e3/cps);function end(){clearInterval(int),window.click=!1,document.body.style.cursor='default'}}})()"
+    },
+    {
+      title: "Inject Javascript",
+      url: "javascript:function JSexe(){ if(valJS!='null' && valJS!='undefined')strJS=valJS; strJS=prompt('Your Javascript code or variable:',strJS); if(strJS!=null && strJS!='' && strJS!='undefined'){ setTimeout('valJS=' + eval(strJS);JSexe()',10); } else{valJS='';strJS='';}}valJS='';strJS='';JSexe();"
+    },
+    {
+      title: "AdBlock",
+      url: "javascript:(function(){const exceptOrigins=['https://disqus.com',document.origin];function remIF(e){try{var orgn=new URL(e.src||'http://unknown-src').origin;if(!exceptOrigins.includes(orgn)){e.parentElement.removeChild(e);console.log('REMOVE IFRAME',orgn);}}catch(err){console.log('REMOVE ERROR',err);}}function remIFs(){for(var e of document.getElementsByTagName('iframe')){remIF(e);}}window.setInterval(remIFs,500);})();"
+    },
+    {
+      title: "Video Speed",
+      url: "javascript:document.querySelector('video').playbackRate=parseFloat(prompt('Video Playback Speed: (Max: 15)','2.75'))"
+    },
+    {
+      title: "Video Volume",
+      url: "javascript:(function(){if(!window.boosterGainNode){const video=document.querySelector('video');const audioCtx=new AudioContext();const mediaSource=audioCtx.createMediaElementSource(video);const gainNode=audioCtx.createGain();mediaSource.connect(gainNode);gainNode.connect(audioCtx.destination);window.boosterGainNode=gainNode;}window.boosterGainNode.gain.value=parseFloat(prompt('Enter Boost Level. eg: 3 (enter 1 to reset)'))||1;})();"
+    }
+  ];
+
+  // Generate unique IDs
+  const menuId = "bookmarklet-menu";
+  const styleId = "bookmarklet-styles";
+
+  // Remove existing menu if already present
+  let existingMenu = document.getElementById(menuId);
+  if (existingMenu) {
+    existingMenu.remove();
+    document.getElementById(styleId).remove();
+    return;
+  }
+
+  // Create menu container
+  let menu = document.createElement("div");
+  menu.id = menuId;
+  menu.className = "bookmarklet-menu";
+
+  // Create close button
+  let closeButton = document.createElement("button");
+  closeButton.textContent = "X";
+  closeButton.className = "close-button";
+  closeButton.onclick = () => {
+    menu.remove();
+    style.remove();
+  };
+  menu.appendChild(closeButton);
+
+  // Add options to the menu
+  options.forEach(option => {
+    let link = document.createElement("a");
+    link.textContent = option.title;
+    link.href = option.url;
+    menu.appendChild(link);
+  });
+
+  document.body.appendChild(menu);
+
+  // Add styles
+  let style = document.createElement("style");
+  style.id = styleId;
+  style.textContent = `
+    .bookmarklet-menu {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 200px;
+      background: #fff;
+      border: 1px solid #b0b0b0;
+      border-radius: 3px;
+      box-shadow: 2px 2px 3px #777;
+      z-index: 10123456;
+      padding: 3px;
+    }
+    .bookmarklet-menu a {
+      display: block;
+      margin: 0;
+      padding: 8px;
+      background: #fff;
+      color: black;
+      text-decoration: none;
+      font: 12px Verdana, sans-serif;
+    }
+    .bookmarklet-menu a:hover {
+      background: #a0a0a0;
+      color: white;
+    }
+    .bookmarklet-menu .close-button {
+      background: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 3px;
+      float: right;
+    }
+  `;
+  document.head.appendChild(style);
+
+})();
