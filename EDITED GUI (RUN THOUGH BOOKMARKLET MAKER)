@@ -7,15 +7,15 @@ javascript:(function() {
     },
     {
       title: "Bad Dark Mode",
-      url: "javascript: if (typeof all === 'undefined') {let all = [];}all = document.getElementsByTagName('*');for (let i = 0; i < all.length; i++) { if(typeof all[i].style !== 'undefined'){all[i].style.fontFamily = 'Georgia';}}document.getElementsByTagName('html')[0].style.filter = 'invert()';if (typeof elems === 'undefined') {let elems = [];}elems = document.querySelectorAll(' a, img, video');for (let j = 0 ; j < elems.length; j++) {if((elems[j].nodeName == 'A' && (elems[j].style.background != '' || elems[j].style.backgroundImage != '')) || elems[j].nodeName != 'A'){elems[j].style.filter = 'invert()';}}void 0;"
+      url: "javascript:if (typeof all === 'undefined') {let all = [];} all = document.getElementsByTagName('*'); for (let i = 0; i < all.length; i++) { if(typeof all[i].style !== 'undefined'){ all[i].style.fontFamily = 'Georgia'; }} document.getElementsByTagName('html')[0].style.filter = 'invert()'; if (typeof elems === 'undefined') {let elems = [];} elems = document.querySelectorAll('a, img, video'); for (let j = 0; j < elems.length; j++) { if((elems[j].nodeName === 'A' && (elems[j].style.background !== '' || elems[j].style.backgroundImage !== '')) || elems[j].nodeName !== 'A') { elems[j].style.filter = 'invert()'; }} void 0;"
     },
     {
       title: "Auto Clicker",
-      url: "javascript:(function(x,y){if(!window.click){window.click=!0,document.body.style.cursor='crosshair';var cps=prompt('Autoclicker CPS: (Under 200 recommended)');if(!cps||isNaN(cps)?(alert('You entered something wrong. Try running the script again.'),end()):alert('Autoclicker activated at '+cps+' CPS! Do [ctrl e] to stop.'),addEventListener('mousemove',e=>{x=e.clientX,y=e.clientY}),addEventListener('keydown',e=>{'e'===e.key&&e.ctrlKey&&(alert('Autoclicker deactivated! Click the bookmark again to reactivate!'),end())}),window.click)var int=setInterval(function(){var e=document.elementFromPoint(x,y);e&&e.click()},1e3/cps);function end(){clearInterval(int),window.click=!1,document.body.style.cursor='default'}}})()"
+      url: "javascript:(function() { if (!window.click) { window.click = true; document.body.style.cursor = 'crosshair'; var cps = prompt('Autoclicker CPS: (Under 200 recommended)'); if (!cps || isNaN(cps)) { alert('You entered something wrong. Try running the script again.'); end(); } else { alert('Autoclicker activated at ' + cps + ' CPS! Do [ctrl e] to stop.'); var x, y; document.addEventListener('mousemove', function(e) { x = e.clientX; y = e.clientY; }); document.addEventListener('keydown', function(e) { if (e.key === 'e' && e.ctrlKey) { alert('Autoclicker deactivated! Click the bookmark again to reactivate!'); end(); } }); var int = setInterval(function() { var el = document.elementFromPoint(x, y); if (el) el.click(); }, 1000 / cps); function end() { clearInterval(int); window.click = false; document.body.style.cursor = 'default'; } } } })();"
     },
     {
-      title: "No YT Adds",
-      url: "javascript: if(document.getElementsByClassName('video-ads')[0].innerHTML !==''){ var banner = false; for(var i = 0; i < document.getElementsByClassName('ytp-ad-overlay-close-button').length; i++){ document.getElementsByClassName('ytp-ad-overlay-close-button')[i].click(); banner = true;} if(banner === false){ document.getElementsByClassName('html5-main-video')[0].currentTime = document.getElementsByClassName('html5-main-video')[0].duration; document.getElementsByClassName('ytp-ad-skip-button')[0].click();} }void 0;"
+      title: "No YT Ads",
+      url: "javascript:if(document.getElementsByClassName('video-ads')[0].innerHTML !==''){ var banner = false; for(var i = 0; i < document.getElementsByClassName('ytp-ad-overlay-close-button').length; i++){ document.getElementsByClassName('ytp-ad-overlay-close-button')[i].click(); banner = true;} if(banner === false){ document.getElementsByClassName('html5-main-video')[0].currentTime = document.getElementsByClassName('html5-main-video')[0].duration; document.getElementsByClassName('ytp-ad-skip-button')[0].click();} } void 0;"
     },
     {
       title: "AdBlock",
@@ -23,11 +23,11 @@ javascript:(function() {
     },
     {
       title: "Tab Cloak",
-      url: "javascript:(function()%7Bjavascript%3A(function() %7B%0A    var link %3D document.querySelector('link%5Brel*%3D'icon'%5D') %7C%7C document.createElement('link')%3B%0A    link.type %3D 'image%2Fx-icon'%3B%0A    link.rel %3D 'shortcut icon'%3B%0A    link.href %3D 'https%3A%2F%2Fuser-images.githubusercontent.com%2F130446887%2F236890346-a33ab9eb-5493-4da8-af8d-b97a3414b458.png'%3B%0A%0A    %2F%2F Remove the existing favicon link if it exists%0A    var head %3D document.getElementsByTagName('head')%5B0%5D%3B%0A    var existingLink %3D head.querySelector('link%5Brel*%3D'icon'%5D')%3B%0A    if (existingLink) %7B%0A        head.removeChild(existingLink)%3B%0A    %7D%0A%0A    head.appendChild(link)%3B%0A    document.title %3D 'goggle classroom'%3B%0A%7D)()%3B%7D)()%3B"
+      url: "javascript:(function(){var link=document.querySelector('link[rel*=\"icon\"]')||document.createElement('link');link.type='image/x-icon';link.rel='shortcut icon';link.href='https://user-images.githubusercontent.com/130446887/236890346-a33ab9eb-5493-4da8-af8d-b97a3414b458.png';var head=document.getElementsByTagName('head')[0];var existingLink=head.querySelector('link[rel*=\"icon\"]');if(existingLink){head.removeChild(existingLink);}head.appendChild(link);document.title='Google Classroom';})();"
     },
     {
       title: "Disorient Everything",
-      url: "javascript:(function(){['', '-ms-', '-webkit-', '-o-', '-moz-'].map(function(prefix){Array.prototype.slice.call(document.querySelectorAll('div,p,span,img,a,body')).map(function(el){el.style[prefix + 'transform'] = 'rotate(' + (Math.floor(Math.random() * 3) - 1) + 'deg)';});});}())"
+      url: "javascript:(function(){['','-ms-','-webkit-','-o-','-moz-'].map(function(prefix){Array.prototype.slice.call(document.querySelectorAll('div,p,span,img,a,body')).map(function(el){el.style[prefix + 'transform']='rotate(' + (Math.floor(Math.random() * 3) - 1) + 'deg)';});});})();"
     }
   ];
 
@@ -108,5 +108,4 @@ javascript:(function() {
     }
   `;
   document.head.appendChild(style);
-
 })();
