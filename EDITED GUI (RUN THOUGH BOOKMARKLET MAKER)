@@ -48,7 +48,7 @@ javascript:(function() {
   let popup = document.createElement("div");
   popup.id = popupId;
   popup.className = "bookmarklet-popup";
-  popup.textContent = "Welcome to the Bookmarklet Menu! Select an option below.";
+  popup.textContent = "Welcome to Potato Client, developed by a defiant person lol";
   document.body.appendChild(popup);
 
   // Fade out popup after 5 seconds
