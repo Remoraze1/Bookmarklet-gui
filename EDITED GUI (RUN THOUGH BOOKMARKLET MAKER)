@@ -23,7 +23,7 @@ javascript:(function() {
     },
     {
       title: "Tab Cloak",
-      url: "javascript:(function(){var link=document.querySelector('link[rel*=\"icon\"]')||document.createElement('link');link.type='image/x-icon';link.rel='shortcut icon';link.href='https://user-images.githubusercontent.com/130446887/236890346-a33ab9eb-5493-4da8-af8d-b97a3414b458.png';var head=document.getElementsByTagName('head')[0];var existingLink=head.querySelector('link[rel*=\"icon\"]');if(existingLink){head.removeChild(existingLink);}head.appendChild(link);document.title='Google Classroom';})();"
+      url: "javascript:(function(){var link=document.querySelector('link[rel*=\\'icon\\']')||document.createElement('link');link.type='image/x-icon';link.rel='shortcut icon';link.href='https://user-images.githubusercontent.com/130446887/236890346-a33ab9eb-5493-4da8-af8d-b97a3414b458.png';var head=document.getElementsByTagName('head')[0];var existingLink=head.querySelector('link[rel*=\\'icon\\']');if(existingLink){head.removeChild(existingLink);}head.appendChild(link);document.title='Google Classroom';})();"
     },
     {
       title: "Disorient Everything",
@@ -34,6 +34,7 @@ javascript:(function() {
   // Generate unique IDs
   const menuId = "bookmarklet-menu";
   const styleId = "bookmarklet-styles";
+  const popupId = "bookmarklet-popup";
 
   // Remove existing menu if already present
   let existingMenu = document.getElementById(menuId);
@@ -42,6 +43,21 @@ javascript:(function() {
     document.getElementById(styleId).remove();
     return;
   }
+
+  // Create pop-up message
+  let popup = document.createElement("div");
+  popup.id = popupId;
+  popup.className = "bookmarklet-popup";
+  popup.textContent = "Welcome to the Bookmarklet Menu! Select an option below.";
+  document.body.appendChild(popup);
+
+  // Fade out popup after 5 seconds
+  setTimeout(() => {
+    popup.style.opacity = '0';
+    setTimeout(() => {
+      popup.remove();
+    }, 1000); // Wait for fade-out transition
+  }, 5000);
 
   // Create menu container
   let menu = document.createElement("div");
@@ -72,33 +88,59 @@ javascript:(function() {
   let style = document.createElement("style");
   style.id = styleId;
   style.textContent = `
+    .bookmarklet-popup {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 10123456;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInOut 6s forwards;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
+    }
     .bookmarklet-menu {
       position: fixed;
       top: 10px;
       right: 10px;
       width: 200px;
-      background: #fff;
-      border: 1px solid #b0b0b0;
+      background: #333;
+      border: 1px solid #444;
       border-radius: 3px;
-      box-shadow: 2px 2px 3px #777;
+      box-shadow: 2px 2px 3px #000;
       z-index: 10123456;
-      padding: 3px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
     }
     .bookmarklet-menu a {
       display: block;
-      margin: 0;
+      margin: 5px 0;
       padding: 8px;
-      background: #fff;
-      color: black;
+      background: #444;
+      color: #fff;
       text-decoration: none;
-      font: 12px Verdana, sans-serif;
+      font-size: 14px;
+      border-radius: 3px;
+      transition: background 0.3s, color 0.3s;
     }
     .bookmarklet-menu a:hover {
-      background: #a0a0a0;
-      color: white;
+      background: #555;
+      color: #fff;
     }
     .bookmarklet-menu .close-button {
-      background: red;
+      background: #555;
       color: white;
       border: none;
       cursor: pointer;
