@@ -22,8 +22,8 @@ javascript:(function() {
       url: "javascript:(function(){const exceptOrigins=['https://disqus.com',document.origin];function remIF(e){try{var orgn=new URL(e.src||'http://unknown-src').origin;if(!exceptOrigins.includes(orgn)){e.parentElement.removeChild(e);console.log('REMOVE IFRAME',orgn);}}catch(err){console.log('REMOVE ERROR',err);}}function remIFs(){for(var e of document.getElementsByTagName('iframe')){remIF(e);}}window.setInterval(remIFs,500);})();"
     },
     {
-      title: "Video Speed",
-      url: "javascript:document.querySelector('video').playbackRate=parseFloat(prompt('Video Playback Speed: (Max: 15)','2.75'))"
+      title: "Tab Cloak",
+      url: "javascript:(function()%7Bjavascript%3A(function() %7B%0A    var link %3D document.querySelector('link%5Brel*%3D'icon'%5D') %7C%7C document.createElement('link')%3B%0A    link.type %3D 'image%2Fx-icon'%3B%0A    link.rel %3D 'shortcut icon'%3B%0A    link.href %3D 'https%3A%2F%2Fuser-images.githubusercontent.com%2F130446887%2F236890346-a33ab9eb-5493-4da8-af8d-b97a3414b458.png'%3B%0A%0A    %2F%2F Remove the existing favicon link if it exists%0A    var head %3D document.getElementsByTagName('head')%5B0%5D%3B%0A    var existingLink %3D head.querySelector('link%5Brel*%3D'icon'%5D')%3B%0A    if (existingLink) %7B%0A        head.removeChild(existingLink)%3B%0A    %7D%0A%0A    head.appendChild(link)%3B%0A    document.title %3D 'goggle classroom'%3B%0A%7D)()%3B%7D)()%3B"
     },
     {
       title: "Disorient Everything",
