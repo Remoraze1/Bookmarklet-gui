@@ -26,8 +26,8 @@ javascript:(function() {
       url: "javascript:document.querySelector('video').playbackRate=parseFloat(prompt('Video Playback Speed: (Max: 15)','2.75'))"
     },
     {
-      title: "Wipes running bookmarklets",
-      url: "javascript:var element = document.getElementById('rusic-modal'); element.parentNode.removeChild(element);"
+      title: "Disorient Everything",
+      url: "javascript:(function(){['', '-ms-', '-webkit-', '-o-', '-moz-'].map(function(prefix){Array.prototype.slice.call(document.querySelectorAll('div,p,span,img,a,body')).map(function(el){el.style[prefix + 'transform'] = 'rotate(' + (Math.floor(Math.random() * 3) - 1) + 'deg)';});});}())"
     }
   ];
 
