@@ -23,7 +23,7 @@ javascript:(function() {
     },
     {
       title: "Tab Cloak",
-      url: "javascript:(function(){var link=document.querySelector('link[rel*=\\'icon\\']')||document.createElement('link');link.type='image/x-icon';link.rel='shortcut icon';link.href='https://user-images.githubusercontent.com/130446887/236890346-a33ab9eb-5493-4da8-af8d-b97a3414b458.png';var head=document.getElementsByTagName('head')[0];var existingLink=head.querySelector('link[rel*=\\'icon\\']');if(existingLink){head.removeChild(existingLink);}head.appendChild(link);document.title='Google Classroom';})();"
+      url: "javascript:(function(){var link=document.querySelector('link[rel*=\\'icon\\']')||document.createElement('link');link.type='image/x-icon';link.rel='shortcut icon';link.href='https://user-images.githubusercontent.com/130446887/236890346-a33ab9eb-5493-4da8-af8d-b97a3414b458.png';var head=document.getElementsByTagName('head')[0];var existingLink=head.querySelector('link[rel*=\\'icon\\']');if(existingLink){head.removeChild(existingLink);}head.appendChild(link);document.title='Goggle Classroom';})();"
     },
     {
       title: "Disorient Everything",
