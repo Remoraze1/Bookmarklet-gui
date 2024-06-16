@@ -8,10 +8,6 @@ javascript:(function() {
       title: "No YT Ads",      
       url: "javascript:if(document.getElementsByClassName('video-ads')[0].innerHTML !==''){ var banner = false; for(var i = 0; i < document.getElementsByClassName('ytp-ad-overlay-close-button').length; i++){ document.getElementsByClassName('ytp-ad-overlay-close-button')[i].click(); banner = true;} if(banner === false){ document.getElementsByClassName('html5-main-video')[0].currentTime = document.getElementsByClassName('html5-main-video')[0].duration; document.getElementsByClassName('ytp-ad-skip-button')[0].click();} } void 0;"    
     }  
-   {      
-      title: "Auto Clicker",      
-      url: "javascript:(function() { if (!window.click) { window.click = true; document.body.style.cursor = 'crosshair'; var cps = prompt('Autoclicker CPS: (Under 200 recommended)'); if (!cps || isNaN(cps)) { alert('You entered something wrong. Try running the script again.'); end(); } else { alert('Autoclicker activated at ' + cps + ' CPS! Do [ctrl e] to stop.'); var x, y; document.addEventListener('mousemove', function(e) { x = e.clientX; y = e.clientY; }); document.addEventListener('keydown', function(e) { if (e.key === 'e' && e.ctrlKey) { alert('Autoclicker deactivated! Click the bookmark again to reactivate!'); end(); } }); var int = setInterval(function() { var el = document.elementFromPoint(x, y); if (el) el.click(); }, 1000 / cps); function end() { clearInterval(int); window.click = false; document.body.style.cursor = 'default'; } } } })();"    
-    },   
   ];  
   
   const scripts = [    
@@ -22,7 +18,11 @@ javascript:(function() {
     {      
       title: "Bad Dark Mode",      
       url: "javascript:if (typeof all === 'undefined') {let all = [];} all = document.getElementsByTagName('*'); for (let i = 0; i < all.length; i++) { if(typeof all[i].style !== 'undefined'){ all[i].style.fontFamily = 'Georgia'; }} document.getElementsByTagName('html')[0].style.filter = 'invert()'; if (typeof elems === 'undefined') {let elems = [];} elems = document.querySelectorAll('a, img, video'); for (let j = 0; j < elems.length; j++) { if((elems[j].nodeName === 'A' && (elems[j].style.background !== '' || elems[j].style.backgroundImage !== '')) || elems[j].nodeName !== 'A') { elems[j].style.filter = 'invert()'; }} void 0;"    
-    },     
+    },    
+    {      
+      title: "Auto Clicker",      
+      url: "javascript:(function() { if (!window.click) { window.click = true; document.body.style.cursor = 'crosshair'; var cps = prompt('Autoclicker CPS: (Under 200 recommended)'); if (!cps || isNaN(cps)) { alert('You entered something wrong. Try running the script again.'); end(); } else { alert('Autoclicker activated at ' + cps + ' CPS! Do [ctrl e] to stop.'); var x, y; document.addEventListener('mousemove', function(e) { x = e.clientX; y = e.clientY; }); document.addEventListener('keydown', function(e) { if (e.key === 'e' && e.ctrlKey) { alert('Autoclicker deactivated! Click the bookmark again to reactivate!'); end(); } }); var int = setInterval(function() { var el = document.elementFromPoint(x, y); if (el) el.click(); }, 1000 / cps); function end() { clearInterval(int); window.click = false; document.body.style.cursor = 'default'; } } } })();"    
+    },    
     {      
       title: "AdBlock",      
       url: "javascript:(function(){const exceptOrigins=['https://disqus.com',document.origin];function remIF(e){try{var orgn=new URL(e.src||'http://unknown-src').origin;if(!exceptOrigins.includes(orgn)){e.parentElement.removeChild(e);console.log('REMOVE IFRAME',orgn);}}catch(err){console.log('REMOVE ERROR',err);}}function remIFs(){for(var e of document.getElementsByTagName('iframe')){remIF(e);}}window.setInterval(remIFs,500);})();"    
@@ -41,11 +41,6 @@ javascript:(function() {
     {      
       title: "Spin Everything",      
       url: "javascript:(function() { var allElements = document.getElementsByTagName('*'); for (var i = 0; i < allElements.length; i++) { var element = allElements[i]; if (element.style) { element.style.transition = 'transform 2s'; element.style.transform = 'rotate(360deg)'; } } })();"    
-    }  
-  {      
-      title: "Mouse Trail",      
-      url: "javascript:(function()%7Bjavascript%3A(()%3D>%7B %0A    %2F%2F Function to calculate square of a number%0A    var a %3D Math.pow%3B%0A    %0A    %2F%2F Unique identifier to manage the mouse trails%0A    var s %3D 'removeMouseTrails'%3B%0A    %0A    %2F%2F Check if mouse trails are already present%0A    if (window%5Bs%5D) %7B%0A        %2F%2F If present%2C remove them%0A        window%5Bs%5D()%3B%0A    %7D else %7B%0A        %2F%2F Function to remove mouse trails%0A        window%5Bs%5D %3D () %3D> %7B%0A            delete window%5Bs%5D%3B%0A            document.body.removeChild(c)%3B%0A            cancelAnimationFrame(m)%3B%0A        %7D%3B%0A        %0A        %2F%2F Variables to store the current mouse position%0A        let d %3D 0%2C l %3D 0%3B%0A        %0A        %2F%2F Create a container for the trail elements%0A        let c %3D document.body.appendChild(document.createElement('div'))%3B%0A        %0A        %2F%2F Create 5 trail elements%0A        let h %3D %5B...Array(5)%5D.map((_%2C n) %3D> %7B%0A            let o %3D 0%2C i %3D 0%3B%0A            let e %3D c.appendChild(document.createElement('div'))%3B%0A            %0A            %2F%2F Style the trail element%0A            e.style.pointerEvents %3D 'none'%3B %2F%2F Make it non-interactive%0A            e.style.borderRadius %3D '50%25'%3B %2F%2F Make it a circle%0A            e.style.position %3D 'fixed'%3B %2F%2F Fix its position on the screen%0A            e.style.background %3D 'grey'%3B %2F%2F Set background color to grey%0A            e.style.width %3D '20px'%3B %2F%2F Set width%0A            e.style.height %3D '20px'%3B %2F%2F Set height%0A            %0A            %2F%2F Define the speed of the trail elements%0A            let p %3D 1 %2F (5 - n %2B 3)%3B%0A            %0A            %2F%2F Function to update the position of the trail element%0A            return () %3D> %7B%0A                o %2B%3D (d - o) * p%3B%0A                i %2B%3D (l - i) * p%3B%0A                e.style.left %3D %60%24%7Bo - 10%7Dpx%60%3B%0A                e.style.top %3D %60%24%7Bi - 10%7Dpx%60%3B%0A                e.style.opacity %3D %60%24%7BMath.min(1%2C (a(d - o%2C 2) %2B a(l - i%2C 2)) %2F 100)%7D%60%3B%0A            %7D%3B%0A        %7D)%3B%0A        %0A        %2F%2F Animation frame ID%0A        let m%3B%0A        %0A        %2F%2F Function to continuously update the trail elements%0A        let r %3D () %3D> %7B%0A            m %3D requestAnimationFrame(() %3D> %7B%0A                for (let n of h) n()%3B%0A                r()%3B%0A            %7D)%3B%0A        %7D%3B%0A        %0A        %2F%2F Update the mouse position on mousemove event%0A        window.addEventListener('mousemove'%2C t %3D> %7B%0A            d %3D t.clientX%3B%0A            l %3D t.clientY%3B%0A        %7D)%3B%0A        %0A        %2F%2F Start the animation%0A        r()%3B%0A    %7D%0A%7D)()%3B%7D)()%3B
-"    
     }  
   ];  
   
@@ -262,4 +257,3 @@ javascript:(function() {
   
   document.head.appendChild(style); 
 })();
-
