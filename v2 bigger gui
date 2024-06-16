@@ -1,1 +1,264 @@
+javascript:(function() {  
+  const exploits = [    
+    {      
+      title: "Tab Cloak",      
+      url: "javascript:(function(){var link=document.querySelector('link[rel*=\\'icon\\']')||document.createElement('link');link.type='image/x-icon';link.rel='shortcut icon';link.href='https://user-images.githubusercontent.com/130446887/236890346-a33ab9eb-5493-4da8-af8d-b97a3414b458.png';var head=document.getElementsByTagName('head')[0];var existingLink=head.querySelector('link[rel*=\\'icon\\']');if(existingLink){head.removeChild(existingLink);}head.appendChild(link);document.title='Goggle Classroom';})()"    
+    },    
+    {      
+      title: "No YT Ads",      
+      url: "javascript:if(document.getElementsByClassName('video-ads')[0].innerHTML !==''){ var banner = false; for(var i = 0; i < document.getElementsByClassName('ytp-ad-overlay-close-button').length; i++){ document.getElementsByClassName('ytp-ad-overlay-close-button')[i].click(); banner = true;} if(banner === false){ document.getElementsByClassName('html5-main-video')[0].currentTime = document.getElementsByClassName('html5-main-video')[0].duration; document.getElementsByClassName('ytp-ad-skip-button')[0].click();} } void 0;"    
+    }  
+   {      
+      title: "Auto Clicker",      
+      url: "javascript:(function() { if (!window.click) { window.click = true; document.body.style.cursor = 'crosshair'; var cps = prompt('Autoclicker CPS: (Under 200 recommended)'); if (!cps || isNaN(cps)) { alert('You entered something wrong. Try running the script again.'); end(); } else { alert('Autoclicker activated at ' + cps + ' CPS! Do [ctrl e] to stop.'); var x, y; document.addEventListener('mousemove', function(e) { x = e.clientX; y = e.clientY; }); document.addEventListener('keydown', function(e) { if (e.key === 'e' && e.ctrlKey) { alert('Autoclicker deactivated! Click the bookmark again to reactivate!'); end(); } }); var int = setInterval(function() { var el = document.elementFromPoint(x, y); if (el) el.click(); }, 1000 / cps); function end() { clearInterval(int); window.click = false; document.body.style.cursor = 'default'; } } } })();"    
+    },   
+  ];  
+  
+  const scripts = [    
+    {      
+      title: "Editable Website",      
+      url: "javascript:document.body.contentEditable = true; void 0;"    
+    },    
+    {      
+      title: "Bad Dark Mode",      
+      url: "javascript:if (typeof all === 'undefined') {let all = [];} all = document.getElementsByTagName('*'); for (let i = 0; i < all.length; i++) { if(typeof all[i].style !== 'undefined'){ all[i].style.fontFamily = 'Georgia'; }} document.getElementsByTagName('html')[0].style.filter = 'invert()'; if (typeof elems === 'undefined') {let elems = [];} elems = document.querySelectorAll('a, img, video'); for (let j = 0; j < elems.length; j++) { if((elems[j].nodeName === 'A' && (elems[j].style.background !== '' || elems[j].style.backgroundImage !== '')) || elems[j].nodeName !== 'A') { elems[j].style.filter = 'invert()'; }} void 0;"    
+    },     
+    {      
+      title: "AdBlock",      
+      url: "javascript:(function(){const exceptOrigins=['https://disqus.com',document.origin];function remIF(e){try{var orgn=new URL(e.src||'http://unknown-src').origin;if(!exceptOrigins.includes(orgn)){e.parentElement.removeChild(e);console.log('REMOVE IFRAME',orgn);}}catch(err){console.log('REMOVE ERROR',err);}}function remIFs(){for(var e of document.getElementsByTagName('iframe')){remIF(e);}}window.setInterval(remIFs,500);})();"    
+    },    
+    {      
+      title: "Disorient Everything",      
+      url: "javascript:(function(){['','-ms-','-webkit-','-o-','-moz-'].map(function(prefix){Array.prototype.slice.call(document.querySelectorAll('div,p,span,img,a,body')).map(function(el){el.style[prefix + 'transform']='rotate(' + (Math.floor(Math.random() * 3) - 1) + 'deg)';});});})();"    
+    }  
+  ];  
+  
+  const fun = [    
+    {      
+      title: "Rainbow Text",      
+      url: "javascript:(function() { var rainbowColors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']; var allElements = document.getElementsByTagName('*'); for (var i = 0; i < allElements.length; i++) { var element = allElements[i]; if (element.style) { element.style.color = rainbowColors[i % rainbowColors.length]; } } })();"    
+    },    
+    {      
+      title: "Spin Everything",      
+      url: "javascript:(function() { var allElements = document.getElementsByTagName('*'); for (var i = 0; i < allElements.length; i++) { var element = allElements[i]; if (element.style) { element.style.transition = 'transform 2s'; element.style.transform = 'rotate(360deg)'; } } })();"    
+    }  
+  {      
+      title: "Mouse Trail",      
+      url: "javascript:(function()%7Bjavascript%3A(()%3D>%7B %0A    %2F%2F Function to calculate square of a number%0A    var a %3D Math.pow%3B%0A    %0A    %2F%2F Unique identifier to manage the mouse trails%0A    var s %3D "removeMouseTrails"%3B%0A    %0A    %2F%2F Check if mouse trails are already present%0A    if (window%5Bs%5D) %7B%0A        %2F%2F If present%2C remove them%0A        window%5Bs%5D()%3B%0A    %7D else %7B%0A        %2F%2F Function to remove mouse trails%0A        window%5Bs%5D %3D () %3D> %7B%0A            delete window%5Bs%5D%3B%0A            document.body.removeChild(c)%3B%0A            cancelAnimationFrame(m)%3B%0A        %7D%3B%0A        %0A        %2F%2F Variables to store the current mouse position%0A        let d %3D 0%2C l %3D 0%3B%0A        %0A        %2F%2F Create a container for the trail elements%0A        let c %3D document.body.appendChild(document.createElement("div"))%3B%0A        %0A        %2F%2F Create 5 trail elements%0A        let h %3D %5B...Array(5)%5D.map((_%2C n) %3D> %7B%0A            let o %3D 0%2C i %3D 0%3B%0A            let e %3D c.appendChild(document.createElement("div"))%3B%0A            %0A            %2F%2F Style the trail element%0A            e.style.pointerEvents %3D "none"%3B %2F%2F Make it non-interactive%0A            e.style.borderRadius %3D "50%25"%3B %2F%2F Make it a circle%0A            e.style.position %3D "fixed"%3B %2F%2F Fix its position on the screen%0A            e.style.background %3D "grey"%3B %2F%2F Set background color to grey%0A            e.style.width %3D "20px"%3B %2F%2F Set width%0A            e.style.height %3D "20px"%3B %2F%2F Set height%0A            %0A            %2F%2F Define the speed of the trail elements%0A            let p %3D 1 %2F (5 - n %2B 3)%3B%0A            %0A            %2F%2F Function to update the position of the trail element%0A            return () %3D> %7B%0A                o %2B%3D (d - o) * p%3B%0A                i %2B%3D (l - i) * p%3B%0A                e.style.left %3D %60%24%7Bo - 10%7Dpx%60%3B%0A                e.style.top %3D %60%24%7Bi - 10%7Dpx%60%3B%0A                e.style.opacity %3D %60%24%7BMath.min(1%2C (a(d - o%2C 2) %2B a(l - i%2C 2)) %2F 100)%7D%60%3B%0A            %7D%3B%0A        %7D)%3B%0A        %0A        %2F%2F Animation frame ID%0A        let m%3B%0A        %0A        %2F%2F Function to continuously update the trail elements%0A        let r %3D () %3D> %7B%0A            m %3D requestAnimationFrame(() %3D> %7B%0A                for (let n of h) n()%3B%0A                r()%3B%0A            %7D)%3B%0A        %7D%3B%0A        %0A        %2F%2F Update the mouse position on mousemove event%0A        window.addEventListener("mousemove"%2C t %3D> %7B%0A            d %3D t.clientX%3B%0A            l %3D t.clientY%3B%0A        %7D)%3B%0A        %0A        %2F%2F Start the animation%0A        r()%3B%0A    %7D%0A%7D)()%3B%7D)()%3B"    
+    }  
+  ];  
+  
+  const menuId = "bookmarklet-menu";  
+  const styleId = "bookmarklet-styles";  
+  const popupId = "bookmarklet-popup";  
+  
+  let existingMenu = document.getElementById(menuId);  
+  if (existingMenu) {    
+    existingMenu.remove();    
+    document.getElementById(styleId).remove();    
+    return;  
+  }  
+  
+  let popup = document.createElement("div");  
+  popup.id = popupId;  
+  popup.className = "bookmarklet-popup";  
+  popup.textContent = "Welcome to Potato Client";  
+  document.body.appendChild(popup);  
+  setTimeout(() => {    
+    popup.style.opacity = '0';    
+    setTimeout(() => {      
+      popup.remove();    
+    }, 1000);  
+  }, 5000);  
+  
+  let menu = document.createElement("div");  
+  menu.id = menuId;  
+  menu.className = "bookmarklet-menu";  
+  
+  let title = document.createElement("div");  
+  title.textContent = "Potato Client";  
+  title.className = "menu-title";  
+  menu.appendChild(title);  
+  
+  let closeButton = document.createElement("button");  
+  closeButton.textContent = "X";  
+  closeButton.className = "close-button";  
+  closeButton.onclick = () => {    
+    menu.remove();    
+    style.remove();  
+  };  
+  menu.appendChild(closeButton);  
+  
+  let tabContainer = document.createElement("div");  
+  tabContainer.className = "tab-container";  
+  menu.appendChild(tabContainer);  
+  
+  let exploitsTab = document.createElement("button");  
+  exploitsTab.textContent = "Exploits";  
+  exploitsTab.className = "tab-button";  
+  exploitsTab.onclick = () => showTab("exploits");  
+  tabContainer.appendChild(exploitsTab);  
+  
+  let scriptsTab = document.createElement("button");  
+  scriptsTab.textContent = "Scripts";  
+  scriptsTab.className = "tab-button";  
+  scriptsTab.onclick = () => showTab("scripts");  
+  tabContainer.appendChild(scriptsTab);  
+  
+  let funTab = document.createElement("button");  
+  funTab.textContent = "Fun";  
+  funTab.className = "tab-button";  
+  funTab.onclick = () => showTab("fun");  
+  tabContainer.appendChild(funTab);  
+  
+  let exploitsContainer = document.createElement("div");  
+  exploitsContainer.id = "exploits";  
+  exploitsContainer.className = "content-container";  
+  menu.appendChild(exploitsContainer);  
+  
+  let scriptsContainer = document.createElement("div");  
+  scriptsContainer.id = "scripts";  
+  scriptsContainer.className = "content-container";  
+  menu.appendChild(scriptsContainer);  
+  
+  let funContainer = document.createElement("div");  
+  funContainer.id = "fun";  
+  funContainer.className = "content-container";  
+  menu.appendChild(funContainer);  
+  
+  function addOptions(container, options) {    
+    options.forEach(option => {      
+      let link = document.createElement("a");      
+      link.textContent = option.title;      
+      link.href = option.url;      
+      container.appendChild(link);    
+    });  
+  }  
+  
+  addOptions(exploitsContainer, exploits);  
+  addOptions(scriptsContainer, scripts);  
+  addOptions(funContainer, fun);  
+  
+  function showTab(tabId) {    
+    document.querySelectorAll(".content-container").forEach(container => {      
+      container.style.display = container.id === tabId ? "block" : "none";    
+    });  
+  }  
+  
+  showTab("exploits");  
+  document.body.appendChild(menu);  
+  
+  let style = document.createElement("style");  
+  style.id = styleId;  
+  style.textContent = `    
+    .bookmarklet-popup {      
+      position: fixed;      
+      top: 20px;      
+      left: 50%;      
+      transform: translateX(-50%);      
+      background: #000;      
+      color: #fff;      
+      padding: 15px;      
+      border-radius: 5px;      
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);      
+      z-index: 10123456;      
+      font-family: Arial, sans-serif;      
+      font-size: 16px;      
+      text-align: center;      
+      opacity: 0;      
+      animation: fadeInOut 6s forwards;    
+    }    
+    
+    @keyframes fadeInOut {      
+      0% { opacity: 0; }      
+      10% { opacity: 1; }      
+      80% { opacity: 1; }      
+      100% { opacity: 0; }    
+    }    
+    
+    .bookmarklet-menu {      
+      position: fixed;      
+      top: 50%;      
+      left: 50%;      
+      transform: translate(-50%, -50%);      
+      background: #333;      
+      color: #ccc;      
+      padding: 40px;      
+      border-radius: 8px;      
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);      
+      z-index: 10123456;      
+      font-family: Arial, sans-serif;      
+      font-size: 16px;      
+      width: 600px;      
+      height: 400px;    
+    }    
+    
+    .menu-title {      
+      font-weight: bold;      
+      margin-bottom: 10px;      
+      color: #fff;      
+      text-align: center;      
+      font-size: 24px;    
+    }    
+    
+    .close-button {      
+      position: absolute;      
+      top: 10px;      
+      right: 10px;      
+      padding: 5px 10px;      
+      background: #555;      
+      color: #fff;      
+      border: none;      
+      border-radius: 3px;      
+      cursor: pointer;    
+    }    
+    
+    .close-button:hover {      
+      background: #777;    
+    }    
+    
+    .tab-container {      
+      display: flex;      
+      flex-direction: column;      
+      align-items: flex-start;      
+      margin-right: 20px;      
+      float: left;    
+    }    
+    
+    .tab-button {      
+      background: #444;      
+      color: #fff;      
+      border: none;      
+      padding: 10px 20px;      
+      cursor: pointer;      
+      border-radius: 3px;      
+      margin-bottom: 5px;    
+    }    
+    
+    .tab-button:hover {      
+      background: #666;    
+    }    
+    
+    .content-container {      
+      display: none;      
+      margin-left: 150px;    
+    }    
+    
+    .content-container a {      
+      display: block;      
+      color: #fff;      
+      text-decoration: none;      
+      margin-bottom: 10px;      
+      padding: 10px;      
+      border-radius: 3px;      
+      background: #444;    
+    }    
+    
+    .content-container a:hover {      
+      background: #666;    
+    }  
+  `;  
+  
+  document.head.appendChild(style); 
+})();
 
