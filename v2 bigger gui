@@ -33,7 +33,7 @@ javascript:(function() {
     }  
   ];  
   
-  const fun = [    
+   const fun = [    
     {      
       title: "Rainbow Text",      
       url: "javascript:(function() { var rainbowColors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']; var allElements = document.getElementsByTagName('*'); for (var i = 0; i < allElements.length; i++) { var element = allElements[i]; if (element.style) { element.style.color = rainbowColors[i % rainbowColors.length]; } } })();"    
@@ -41,6 +41,14 @@ javascript:(function() {
     {      
       title: "Spin Everything",      
       url: "javascript:(function() { var allElements = document.getElementsByTagName('*'); for (var i = 0; i < allElements.length; i++) { var element = allElements[i]; if (element.style) { element.style.transition = 'transform 2s'; element.style.transform = 'rotate(360deg)'; } } })();"    
+    },    
+    {      
+      title: "Uglify",      
+      url: "javascript:(function(){var elems=document.getElementsByTagName('*');for(var i=0;i<elems.length;i++){elems[i].style.fontFamily='Comic Sans MS';elems[i].style.fontSize=Math.random()*75+'px';elems[i].style.color='#'+Math.random().toString(16).slice(2,8);elems[i].style.backgroundColor='#'+Math.random().toString(16).slice(2,8)}})();document.onclick=function(){(function(){var d=0;setInterval(function(){document.body.style['-webkit-transform']='rotate('+d+'deg)';d+=1},100)}());};"    
+    },    
+    {      
+      title: "Mouse Trail",      
+      url: "javascript:(function()%7Bjavascript%3A(()%3D>%7Bvar a%3DMath.pow%3Bvar s%3D'removeMouseTrails'%3Bif(window%5Bs%5D)%7Bwindow%5Bs%5D()%3B%7Delse%7Bwindow%5Bs%5D%3D()%3D%3E%7Bdelete window%5Bs%5D%3Bdocument.body.removeChild(c)%3BcancelAnimationFrame(m)%3B%7D%3Blet d%3D0%2Cl%3D0%3Blet c%3Ddocument.body.appendChild(document.createElement('div'))%3Blet h%3D%5B...Array(5)%5D.map((_%2Cn)%3D%3E%7Blet o%3D0%2Ci%3D0%3Blet e%3Dc.appendChild(document.createElement('div'))%3Be.style.pointerEvents%3D'none'%3Be.style.borderRadius%3D'50%25'%3Be.style.position%3D'fixed'%3Be.style.background%3D'grey'%3Be.style.width%3D'20px'%3Be.style.height%3D'20px'%3Blet p%3D1%2F(5-n%2B3)%3Breturn()%3D%3E%7Bo%2B%3D(d-o)*p%3Bi%2B%3D(l-i)*p%3Be.style.left%3D%60%24%7Bo-10%7Dpx%60%3Be.style.top%3D%60%24%7Bi-10%7Dpx%60%3B%7D%7D)%3BrequestAnimationFrame(function n()%7Bh%5B0%5D()%3Bfor(var a%3D1%3Ba%3Ch.length%3Ba%2B%2B)h%5Ba%5D()%3Bm%3DrequestAnimationFrame(n)%7D)%3BaddEventListener('mousemove'%2C(e%3D%3E(d%3De.clientX%2Cl%3De.clientY))%2Cfalse)%3B%7D%7D)()%7D)()"    
     }  
   ];  
   
